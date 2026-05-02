@@ -81,184 +81,187 @@ body {
 }
 
 /* ══════════════════════════════════════
-   AUTH
+   AUTH — كيما الصورة: خلفية خضرة + كارت أبيض
 ══════════════════════════════════════ */
 #auth-screen {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0d2b0d 0%, #1a4a1a 50%, #0f1f0f 100%);
-  padding: 20px;
+  background: #1b5e20;
+  padding: 24px 20px;
   position: relative;
   overflow: hidden;
 }
 
+/* نقط ديكور خفيفة في الخلفية */
 #auth-screen::before {
   content: '';
-  position: absolute;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(34,136,63,0.15) 0%, transparent 70%);
-  top: -200px; right: -200px;
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,0,0,0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
-#auth-screen::after {
-  content: '';
-  position: absolute;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(34,136,63,0.1) 0%, transparent 70%);
-  bottom: -150px; left: -100px;
-  pointer-events: none;
-}
-
+/* كارت أبيض نظيف كيما الصورة */
 .auth-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
-  padding: 44px 40px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 40px 36px 36px;
   width: 100%;
-  max-width: 420px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  max-width: 430px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 4px 16px rgba(0,0,0,0.12);
   position: relative;
   z-index: 1;
 }
 
+/* Logo: نص أخضر غامق */
 .auth-logo {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .auth-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px; height: 60px;
-  background: linear-gradient(135deg, #22883f, #3dbb65);
-  border-radius: 18px;
   font-family: 'Syne', sans-serif;
-  font-size: 28px;
-  color: white;
+  font-size: 36px;
   font-weight: 800;
-  margin-bottom: 14px;
-  box-shadow: 0 8px 24px rgba(34,136,63,0.4);
+  color: #1b5e20;
+  letter-spacing: -1px;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
 .auth-title {
   font-family: 'Syne', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.3px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2e7d32;
+  letter-spacing: 0.5px;
 }
 
-.auth-subtitle { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 4px; }
+.auth-subtitle { display: none; }
 
+/* Tabs كيما الصورة: رمادي فاتح + أبيض للـ active */
 .auth-tabs {
   display: flex;
-  background: rgba(255,255,255,0.06);
-  border-radius: var(--r-sm);
-  padding: 3px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  padding: 4px;
   margin-bottom: 24px;
 }
 
 .auth-tab {
-  flex: 1; padding: 9px;
+  flex: 1; padding: 10px;
   border: none; background: none;
-  border-radius: 6px;
+  border-radius: 7px;
   font-family: 'Outfit', sans-serif;
-  font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.5);
+  font-size: 14px; font-weight: 500;
+  color: #888;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .auth-tab.active {
-  background: rgba(255,255,255,0.12);
-  color: white;
+  background: #ffffff;
+  color: #1b5e20;
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
 
-.auth-input-group { margin-bottom: 14px; }
+.auth-input-group { margin-bottom: 16px; }
 
+/* Labels: gras, noir, كيما الصورة */
 .auth-label {
   display: block;
-  font-size: 12px; font-weight: 600;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
+  font-size: 14px; font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
+/* Inputs: بيض، حواف رمادية ناعمة */
 .auth-input {
   width: 100%;
-  padding: 12px 14px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--r-sm);
-  color: white;
+  padding: 13px 16px;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  color: #1a1a1a;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   outline: none;
   transition: all 0.2s;
+  -webkit-appearance: none;
 }
 
-.auth-input::placeholder { color: rgba(255,255,255,0.25); }
-.auth-input:focus { border-color: #3dbb65; background: rgba(255,255,255,0.1); box-shadow: 0 0 0 3px rgba(61,187,101,0.15); }
+.auth-input::placeholder { color: #bdbdbd; }
+.auth-input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.1);
+}
 
+/* زر: أخضر غامق كيما الصورة */
 .auth-btn {
   width: 100%;
-  padding: 13px;
-  background: linear-gradient(135deg, #22883f, #3dbb65);
+  padding: 14px;
+  background: #1b5e20;
   border: none;
-  border-radius: var(--r-sm);
+  border-radius: 10px;
   color: white;
   font-family: 'Outfit', sans-serif;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-  margin-top: 6px;
-  box-shadow: 0 4px 16px rgba(34,136,63,0.35);
+  margin-top: 8px;
+  letter-spacing: 0.2px;
 }
 
-.auth-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,136,63,0.45); }
-.auth-btn:active { transform: translateY(0); }
+.auth-btn:hover { background: #2e7d32; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(27,94,32,0.3); }
+.auth-btn:active { transform: translateY(0); background: #1b5e20; }
 
+/* Error: rouge sous le bouton كيما الصورة */
 .auth-error {
-  background: rgba(192,57,43,0.15);
-  border: 1px solid rgba(192,57,43,0.3);
-  border-radius: var(--r-xs);
-  padding: 10px 14px;
-  color: #ff8a80;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 10px 4px 0;
+  color: #e53935;
   font-size: 13px;
-  margin-top: 12px;
+  font-weight: 500;
+  margin-top: 4px;
   display: none;
+  text-align: center;
+  line-height: 1.4;
 }
 
+/* Config section — في الكارت الأبيض */
 .config-section {
-  background: rgba(244,180,0,0.08);
-  border: 1px solid rgba(244,180,0,0.2);
-  border-radius: var(--r-sm);
+  background: #fff8e1;
+  border: 1.5px solid #ffe082;
+  border-radius: 10px;
   padding: 14px;
   margin-bottom: 18px;
 }
 
-.config-section h4 { color: #fbbf24; font-size: 13px; font-weight: 600; margin-bottom: 8px; }
-.config-section p { color: rgba(255,255,255,0.4); font-size: 12px; margin-bottom: 10px; }
+.config-section h4 { color: #e65100; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.config-section p { color: #6d4c41; font-size: 12px; margin-bottom: 10px; }
 .config-save-btn {
   width: 100%; padding: 9px;
-  background: rgba(251,191,36,0.15);
-  border: 1px solid rgba(251,191,36,0.3);
-  border-radius: var(--r-xs);
-  color: #fbbf24;
+  background: #fff3e0;
+  border: 1.5px solid #ffcc02;
+  border-radius: 7px;
+  color: #e65100;
   font-family: 'Outfit', sans-serif;
-  font-size: 13px; font-weight: 600;
+  font-size: 13px; font-weight: 700;
   cursor: pointer;
   margin-top: 8px;
   transition: all 0.2s;
 }
-.config-save-btn:hover { background: rgba(251,191,36,0.25); }
+.config-save-btn:hover { background: #ffe0b2; }
 
 /* ══════════════════════════════════════
    APP SHELL
@@ -761,8 +764,26 @@ tbody td {
   font-size: 13px; color: var(--muted);
   padding: 4px 0;
 }
-
 .results-count strong { color: var(--text); }
+
+.filter-btn {
+  padding: 7px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
 
 /* ══════════════════════════════════════
    DETAIL PAGE
@@ -1163,48 +1184,19 @@ tbody td {
       <div class="auth-subtitle">Gestion d'ordonnances — Pharmacie</div>
     </div>
 
-    <div class="auth-tabs">
-      <button class="auth-tab active" onclick="switchAuthTab('login',this)">Connexion</button>
-      <button class="auth-tab" onclick="switchAuthTab('register',this)">Inscription</button>
-    </div>
-
-    <!-- LOGIN -->
+    <!-- LOGIN UNIQUEMENT — inscription réservée à l'admin -->
     <div id="auth-login">
       <div class="auth-input-group">
-        <label class="auth-label">Email</label>
+        <label class="auth-label">Adresse e-mail</label>
         <input type="email" class="auth-input" id="l-email" placeholder="email@exemple.com">
       </div>
       <div class="auth-input-group">
         <label class="auth-label">Mot de passe</label>
         <input type="password" class="auth-input" id="l-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')handleLogin()">
       </div>
-      <button class="auth-btn" onclick="handleLogin()">Se connecter →</button>
-    </div>
+      <button class="auth-btn" onclick="handleLogin()">Se connecter</button>
 
-    <!-- REGISTER -->
-    <div id="auth-register" style="display:none;">
-      <div class="config-section">
-        <h4>⚙️ Configuration Supabase</h4>
-        <p>Nécessaire pour activer la base de données cloud.</p>
-        <div class="auth-input-group" style="margin-bottom:8px;">
-          <label class="auth-label">URL du projet</label>
-          <input type="text" class="auth-input" id="sb-url" placeholder="https://xxx.supabase.co">
-        </div>
-        <div class="auth-input-group" style="margin-bottom:0;">
-          <label class="auth-label">Clé Anon</label>
-          <input type="text" class="auth-input" id="sb-key" placeholder="eyJhbGci...">
-        </div>
-        <button class="config-save-btn" onclick="saveConfig()">💾 Sauvegarder</button>
-      </div>
-      <div class="auth-input-group">
-        <label class="auth-label">Email</label>
-        <input type="email" class="auth-input" id="r-email" placeholder="email@exemple.com">
-      </div>
-      <div class="auth-input-group">
-        <label class="auth-label">Mot de passe</label>
-        <input type="password" class="auth-input" id="r-pass" placeholder="Minimum 6 caractères">
-      </div>
-      <button class="auth-btn" onclick="handleRegister()">Créer un compte →</button>
+
     </div>
 
     <div id="auth-err" class="auth-error"></div>
@@ -1351,7 +1343,13 @@ tbody td {
           <span class="search-main-icon">🔍</span>
           <input type="text" id="search-input" placeholder="Rechercher un patient..." oninput="handleSearch()">
         </div>
-        <div class="results-count" id="results-count"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center;">
+        <button class="filter-btn active" id="f-all" onclick="setFilter('all',this)">Tous</button>
+        <button class="filter-btn" id="f-active" onclick="setFilter('active',this)">✅ Actifs</button>
+        <button class="filter-btn" id="f-expiring" onclick="setFilter('expiring',this)">⏰ Bientôt expirés</button>
+        <button class="filter-btn" id="f-expired" onclick="setFilter('expired',this)">⚠️ Expirés</button>
+        <div class="results-count" id="results-count" style="margin-left:auto;"></div>
       </div>
 
       <div id="search-results">
@@ -1526,6 +1524,32 @@ tbody td {
   <img id="lb-img" src="" style="max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.5);">
 </div>
 
+
+<!-- DELETE CONFIRMATION MODAL -->
+<div class="overlay" id="m-delete">
+  <div class="modal" style="max-width:420px;">
+    <div class="modal-head" style="border-bottom-color:#f5c6cb;">
+      <div class="modal-title" style="color:var(--red);">⚠️ Supprimer le patient</div>
+      <button class="modal-close" onclick="closeModal('m-delete')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="width:56px;height:56px;background:var(--red-soft);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 12px;">🗑️</div>
+        <div style="font-weight:700;font-size:15px;margin-bottom:6px;">Supprimer <span id="del-patient-name" style="color:var(--red);"></span> ?</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.5;">Cette action est <strong>irréversible</strong>.<br>Toutes les données et photos seront perdues.</div>
+      </div>
+      <div class="form-group">
+        <label style="color:var(--red);font-size:12px;">Tapez <strong>SUPPRIMER</strong> pour confirmer</label>
+        <input type="text" id="del-confirm-input" placeholder="SUPPRIMER" oninput="checkDeleteInput()" style="border-color:#f5c6cb;text-align:center;font-weight:700;letter-spacing:1px;">
+      </div>
+    </div>
+    <div class="modal-foot" style="border-top-color:#f5c6cb;">
+      <button class="btn btn-ghost" onclick="closeModal('m-delete')">Annuler</button>
+      <button class="btn btn-danger" id="del-confirm-btn" onclick="confirmDelete()" disabled style="opacity:0.5;cursor:not-allowed;">🗑️ Supprimer définitivement</button>
+    </div>
+  </div>
+</div>
+
 <!-- Toast container -->
 <div class="toast-container" id="toast-container"></div>
 
@@ -1538,44 +1562,34 @@ let ME = null;
 let MY_ROLE = 'user';
 let CURRENT_ID = null;
 let SEARCH_T = null;
+let ACTIVE_FILTER = 'all';
 let TOPBAR_T = null;
 let ALL_PATIENTS = [];
 
 // ════════════════════════════════════════════════
 //  SUPABASE
 // ════════════════════════════════════════════════
+// ══ CONFIGURATION SUPABASE ══
+// Remplacez les valeurs ci-dessous par vos informations Supabase
+const SUPABASE_URL = 'https://hitwsqgoeatbnoebuegb.supabase.co';   // ex: https://xxx.supabase.co
+const SUPABASE_KEY = 'sb_publishable_iTCKQ0F9OewpyKjlYtGEBQ_iMxVmnkj';   // Anon public key
+
 function initSB() {
-  const url = localStorage.getItem('sb_url');
-  const key = localStorage.getItem('sb_key');
-  if (url && key) {
-    try { SB = supabase.createClient(url, key); return true; } catch(e) { return false; }
+  if (SUPABASE_URL === 'VOTRE_URL_ICI' || SUPABASE_KEY === 'VOTRE_KEY_ICI') {
+    return false; // pas encore configuré
   }
-  return false;
+  try { SB = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); return true; } catch(e) { return false; }
 }
 
-function saveConfig() {
-  const url = document.getElementById('sb-url').value.trim();
-  const key = document.getElementById('sb-key').value.trim();
-  if (!url || !key) { toast('Remplissez les deux champs.', 'error'); return; }
-  localStorage.setItem('sb_url', url);
-  localStorage.setItem('sb_key', key);
-  initSB();
-  toast('Configuration sauvegardée !', 'success');
-}
+function saveConfig() {} // config intégrée dans le code
 
 // ════════════════════════════════════════════════
 //  AUTH
 // ════════════════════════════════════════════════
-function switchAuthTab(tab, el) {
-  document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('auth-login').style.display = tab === 'login' ? 'block' : 'none';
-  document.getElementById('auth-register').style.display = tab === 'register' ? 'block' : 'none';
-  hideAuthErr();
-}
+// inscription désactivée — admin seulement
 
 async function handleLogin() {
-  if (!initSB()) { authErr('Configurez d\'abord Supabase dans l\'onglet Inscription.'); return; }
+  if (!initSB()) { authErr('Supabase non configuré — contactez l\'administrateur.'); return; }
   const email = document.getElementById('l-email').value.trim();
   const pass = document.getElementById('l-pass').value;
   if (!email || !pass) { authErr('Veuillez remplir tous les champs.'); return; }
@@ -1586,15 +1600,7 @@ async function handleLogin() {
   enterApp();
 }
 
-async function handleRegister() {
-  if (!initSB()) { authErr('Configurez d\'abord Supabase.'); return; }
-  const email = document.getElementById('r-email').value.trim();
-  const pass = document.getElementById('r-pass').value;
-  if (!email || !pass) { authErr('Remplissez tous les champs.'); return; }
-  const { error } = await SB.auth.signUp({ email, password: pass });
-  if (error) { authErr(error.message); return; }
-  toast('Compte créé ! Vérifiez votre email.', 'success');
-}
+function toggleConfig() {}
 
 async function handleLogout() {
   if (SB) await SB.auth.signOut();
@@ -1641,12 +1647,6 @@ function hideAuthErr() { document.getElementById('auth-err').style.display = 'no
 
 // Session restore
 window.addEventListener('DOMContentLoaded', async () => {
-  // Restore config
-  const url = localStorage.getItem('sb_url');
-  const key = localStorage.getItem('sb_key');
-  if (url) document.getElementById('sb-url').value = url;
-  if (key) document.getElementById('sb-key').value = key;
-
   // Restore theme
   const theme = localStorage.getItem('theme') || 'light';
   setTheme(theme);
@@ -1678,6 +1678,7 @@ function showPage(name) {
   closeUserMenu();
   if (name === 'admin') loadUsers();
   if (name === 'dashboard') loadDashboard();
+  if (name === 'search') { document.getElementById('search-input').value = ''; handleSearch(); }
 }
 
 // ════════════════════════════════════════════════
@@ -1807,35 +1808,52 @@ function closeNotif() { document.getElementById('notif-panel').classList.remove(
 // ════════════════════════════════════════════════
 //  SEARCH
 // ════════════════════════════════════════════════
+function setFilter(f, el) {
+  ACTIVE_FILTER = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  handleSearch();
+}
+
+function applyFilter(data) {
+  const today = new Date(); today.setHours(0,0,0,0);
+  if (ACTIVE_FILTER === 'all') return data;
+  return data.filter(p => {
+    if (!p.date_fin) return ACTIVE_FILTER === 'active';
+    const j = Math.ceil((new Date(p.date_fin) - today) / 86400000);
+    if (ACTIVE_FILTER === 'active') return j > 7;
+    if (ACTIVE_FILTER === 'expiring') return j >= 0 && j <= 7;
+    if (ACTIVE_FILTER === 'expired') return j < 0;
+    return true;
+  });
+}
+
 function handleSearch() {
   clearTimeout(SEARCH_T);
   const q = document.getElementById('search-input').value.trim();
-  const countEl = document.getElementById('results-count');
-  if (q.length < 2) {
-    document.getElementById('search-results').innerHTML = '<div class="empty"><span class="empty-icon">📋</span><p>Tapez au moins 2 caractères</p></div>';
-    countEl.textContent = '';
-    return;
-  }
-  document.getElementById('search-results').innerHTML = '<div class="loading-row"><div class="spin"></div> Recherche en cours...</div>';
+  document.getElementById('search-results').innerHTML = '<div class="loading-row"><div class="spin"></div> Recherche...</div>';
   SEARCH_T = setTimeout(() => doSearch(q), 250);
 }
 
 async function doSearch(q) {
   if (!SB) return;
-  const { data, error } = await SB.from('patients').select('*')
-    .or(`nom.ilike.%${q}%,prenom.ilike.%${q}%,telephone.ilike.%${q}%`)
-    .order('created_at', { ascending: false });
+  let query = SB.from('patients').select('*').order('created_at', { ascending: false });
+  if (q.length >= 2) {
+    query = query.or(`nom.ilike.%${q}%,prenom.ilike.%${q}%,telephone.ilike.%${q}%`);
+  }
+  const { data: raw, error } = await query;
+  if (error) { toast('Erreur: ' + error.message, 'error'); return; }
 
-  if (error) { showToast('Erreur: ' + error.message, 'error'); return; }
-
+  const data = applyFilter(raw || []);
   const countEl = document.getElementById('results-count');
+
   if (!data || data.length === 0) {
-    document.getElementById('search-results').innerHTML = '<div class="empty"><span class="empty-icon">🔍</span><p>Aucun résultat pour "<strong>' + q + '</strong>"</p></div>';
+    document.getElementById('search-results').innerHTML = '<div class="empty"><span class="empty-icon">🔍</span><p>Aucun résultat</p></div>';
     countEl.textContent = '';
     return;
   }
 
-  countEl.innerHTML = '<strong>' + data.length + '</strong> résultat' + (data.length > 1 ? 's' : '');
+  countEl.innerHTML = '<strong>' + data.length + '</strong> patient' + (data.length > 1 ? 's' : '');
   const today = new Date(); today.setHours(0,0,0,0);
 
   const html = `
@@ -2035,15 +2053,34 @@ async function showDetail(id) {
     <div class="action-bar">
       <button class="btn btn-secondary" onclick="openEditModal(${JSON.stringify(p).replace(/"/g,'&quot;')})">✏️ Modifier</button>
       <button class="btn btn-ghost" onclick="printPage()">🖨️ Imprimer</button>
-      ${MY_ROLE === 'admin' ? `<button class="btn btn-danger" onclick="deletePatient(${p.id})">🗑️ Supprimer</button>` : ''}
     </div>
+
+    ${MY_ROLE === 'admin' ? `
+    <div style="margin-top:28px;border-top:2px dashed var(--red-soft);padding-top:20px;">
+      <div style="display:flex;align-items:center;gap:12px;background:var(--red-soft);border:1.5px solid #f5c6cb;border-radius:var(--r);padding:16px 20px;">
+        <div style="flex:1;">
+          <div style="font-weight:700;font-size:14px;color:var(--red);">⚠️ Zone de suppression</div>
+          <div style="font-size:12px;color:var(--red);opacity:0.8;margin-top:3px;">Cette action est irréversible. Le patient et toutes ses données seront supprimés définitivement.</div>
+        </div>
+        <button class="btn btn-danger" onclick="openDeleteModal(${p.id}, '${p.nom} ${p.prenom}')">🗑️ Supprimer</button>
+      </div>
+    </div>` : ''}
   `;
 }
 
 async function getUrl(path) {
   if (!path) return null;
-  const { data } = SB.storage.from('ordonnances').getPublicUrl(path);
-  return data?.publicUrl || null;
+  try {
+    // Try signed URL first (works for private buckets)
+    const { data: signed } = await SB.storage.from('ordonnances').createSignedUrl(path, 3600);
+    if (signed?.signedUrl) return signed.signedUrl;
+    // Fallback to public URL
+    const { data: pub } = SB.storage.from('ordonnances').getPublicUrl(path);
+    return pub?.publicUrl || null;
+  } catch(e) {
+    const { data } = SB.storage.from('ordonnances').getPublicUrl(path);
+    return data?.publicUrl || null;
+  }
 }
 
 function printPage() { window.print(); }
@@ -2207,11 +2244,33 @@ async function updatePatient() {
   loadNotifications();
 }
 
-async function deletePatient(id) {
-  if (!confirm('Supprimer ce patient définitivement ?')) return;
-  const { error } = await SB.from('patients').delete().eq('id', id);
+let DELETE_ID = null;
+let DELETE_NAME = '';
+
+function openDeleteModal(id, name) {
+  DELETE_ID = id;
+  DELETE_NAME = name;
+  document.getElementById('del-patient-name').textContent = name;
+  document.getElementById('del-confirm-input').value = '';
+  document.getElementById('del-confirm-btn').disabled = true;
+  openModal('m-delete');
+}
+
+function checkDeleteInput() {
+  const val = document.getElementById('del-confirm-input').value.trim();
+  const btn = document.getElementById('del-confirm-btn');
+  btn.disabled = (val !== 'SUPPRIMER');
+  btn.style.opacity = (val === 'SUPPRIMER') ? '1' : '0.5';
+  btn.style.cursor = (val === 'SUPPRIMER') ? 'pointer' : 'not-allowed';
+}
+
+async function confirmDelete() {
+  if (!DELETE_ID) return;
+  const { error } = await SB.from('patients').delete().eq('id', DELETE_ID);
   if (error) { toast('Erreur: ' + error.message, 'error'); return; }
-  toast('Patient supprimé.', 'info');
+  closeModal('m-delete');
+  toast('✅ Patient supprimé définitivement.', 'info');
+  DELETE_ID = null;
   showPage('search');
   loadDashboard();
   loadNotifications();
